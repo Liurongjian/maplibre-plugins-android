@@ -1,11 +1,11 @@
 apply plugin: 'com.android.library'
 
 android {
-  compileSdkVersion androidVersions.compileSdkVersion
+  compileSdkVersion buildConfig.compileSdkVersion
 
   defaultConfig {
-    minSdkVersion androidVersions.minSdkVersion
-    targetSdkVersion androidVersions.targetSdkVersion
+    minSdkVersion buildConfig.minSdkVersion
+    targetSdkVersion buildConfig.targetSdkVersion
     testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
   }
 
@@ -19,16 +19,16 @@ android {
 }
 
 dependencies {
-  implementation dependenciesList.supportAppcompatV7
-  implementation dependenciesList.mapLibreAndroidSdk
-  implementation dependenciesList.timber
-  javadocDeps dependenciesList.mapLibreAndroidSdk
+  implementation deps.appcompat
+  implementation deps.maptiler
+  implementation deps.timber
+  // javadocDeps dependenciesList.mapLibreAndroidSdk
 
   // Unit testing
-  testImplementation dependenciesList.junit
-  testImplementation dependenciesList.mockito
+  testImplementation deps.testJunit
+  testImplementation deps.testMockito
 }
 
-apply from: "${rootDir}/gradle/javadoc.gradle"
-apply from: "${rootDir}/gradle/publish.gradle"
-apply from: "${rootDir}/gradle/checkstyle.gradle"
+//apply from: "${rootDir}/gradle/javadoc.gradle"
+//apply from: "${rootDir}/gradle/publish.gradle"
+//apply from: "${rootDir}/gradle/checkstyle.gradle"
